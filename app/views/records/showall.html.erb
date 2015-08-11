@@ -1,0 +1,25 @@
+<h1>All Employee's Records</h1>
+
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Employee</th>
+		<th>Horse</th>
+		<th>Hours</th>
+		<th>Activity</th>
+	</tr>
+	<% if @records != nil %>
+		<% @records.each do |record| %>
+			<tr>
+				<td><%= record.date %></td>
+				<td><%= Employee.find(record.employee_id).username %></td>
+				<td><%= record.horse %></td>
+				<td><%= record.hours %></td>
+				<td><%= record.activity %></td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>
+
+<br />
+<%= link_to 'Back to Employees List', employees_path %>

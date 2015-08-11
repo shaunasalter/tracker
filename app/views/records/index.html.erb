@@ -1,0 +1,29 @@
+<h1><%= @employee.username %>'s Records</h1>
+
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Horse</th>
+		<th>Hours</th>
+		<th>Activity</th>
+	</tr>
+	<% @records.each do |record| %>
+		<% if record != nil %>
+		<tr>
+			<td><%= record.date %></td>
+			<td><%= record.horse %></td>
+			<td><%= record.hours %></td>
+			<td><%= record.activity %></td>
+		</tr>
+		<% else %>
+			<td>No Data</td>
+			<td>No Data</td>
+			<td>No Data</td>
+			<td>No Data</td>
+		<% end %>
+	<% end %>
+</table>
+
+<%= link_to 'Add New Record', new_employee_record_path(@employee) %>
+<br />
+<%= link_to 'Back to Employees List', employees_path %>
